@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	div(class="col-md-4 center-block Sin-Float text-center")
+		img(src="images/film roll.jpg")
+		h1(class="oswald-700")= title
+	div(class="col-md-4 center-block Sin-Float")
+		p(class="oswald-400 normal-size") A conticuacion se muestra una lista con las mejores peliculas del 2015
+		ul
+			each Film in Peliculas
+				li(class="oswald-400 normal-size") #{Film.FilmID} #{Film.Name}
+
+		form(method="post" action="/descripcion")
+			div(class="form-group")
+				label(class="oswald-400 normal-size") Digite numero de pelicula a consultar:
+				input(type="text" name="ID" class="form-control")
+			div(class="form-group")
+				input(type="submit" value="Mostrar" class="btn btn-primary")
+
+		p=descrip_film
